@@ -16,16 +16,11 @@ export default defineConfig({
     },
 
     rollupOptions: {
-      external: [
-        "react",
-        "react/jsx-runtime",
-        "react-dom",
-        "styled-components",
-      ],
+      external: ["react", "react/jsx-runtime", "react-dom", "jotai"],
       output: {
         globals: {
           react: "React",
-          "styled-components": "styled-components",
+          jotai: "jotai",
           "react-dom": "ReactDOM",
           "react/jsx-runtime": "react/jsx-runtime",
         },
