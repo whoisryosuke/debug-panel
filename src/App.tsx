@@ -1,7 +1,9 @@
-import Stack from "./components/Stack";
+import DebugPanel from "./components/DebugPanel/DebugPanel";
 
 function App() {
-  return <Stack />;
+  return <div>
+    <DebugPanel />
+  </div>;
 }
 
 export default App;
