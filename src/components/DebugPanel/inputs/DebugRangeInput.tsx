@@ -30,8 +30,9 @@ const DebugRangeInput = ({ id, type, data }: Props) => {
 
   return (
     <div className={sharedStyles.FormField}>
-      <h3>{id}</h3>
+      <label htmlFor={id}>{id}</label>
       <input
+        name={id}
         className={styles.Range}
         type="range"
         min={data.min}

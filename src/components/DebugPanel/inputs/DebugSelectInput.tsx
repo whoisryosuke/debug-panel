@@ -29,9 +29,10 @@ const DebugSelectInput = ({ id, type, data }: Props) => {
 
   return (
     <div className={sharedStyles.FormField}>
-      <h3>{id}</h3>
+      <label htmlFor={id}>{id}</label>
 
       <select
+        name={id}
         className={sharedStyles.InputBox}
         value={data.value}
         onChange={handleChange}
