@@ -1,0 +1,30 @@
+.FormField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.FormField h3 {
+  color: var(--gray-6);
+  font-size: var(--space-3);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.InputBox {
+  color: var(--gray-10);
+  padding: var(--space-1) var(--space-2);
+  background: var(--gray-2);
+  border-radius: var(--space-1);
+  border: 1.5px solid var(--gray-3);
+  font-family: var(--font-family);
+  transition: color 240ms linear;
+}
+
+.InputBox:hover {
+  color: var(--gray-11);
+}
+
+.InputBox:focus-visible {
+  outline: 1.5px solid teal;
+}

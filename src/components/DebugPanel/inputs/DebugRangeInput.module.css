@@ -1,0 +1,114 @@
+.Range {
+  -webkit-appearance: none;
+  margin: 18px 0;
+  width: 100%;
+
+  background: transparent;
+
+  --thumb-height: 24px;
+  --thumb-height-expand: 36px;
+  --thumb-width: 8px;
+  --thumb-width-expand: 16px;
+  --thumb-radius: var(--space-1);
+  --thumb-bg: var(--gray-4);
+  --thumb-bg-hover: var(--gray-6);
+  --thumb-bg-active: var(--gray-2);
+  --thumb-border: 1.5px solid var(--gray-5);
+
+  --track-height: 6.9px;
+  --track-bg: var(--gray-2);
+  --track-bg-active: teal;
+  --track-border: 1.5px solid var(--gray-3);
+
+  --duration: 240ms;
+}
+
+.Range:focus {
+  outline: none;
+}
+
+/* Track */
+.Range::-moz-range-track {
+  width: 100%;
+  height: var(--track-height);
+  cursor: pointer;
+  background: var(--track-bg);
+  border-radius: var(--space-1);
+  border: var(--track-border);
+
+  transition: background-color 420ms linear;
+}
+.Range:active::-moz-range-track {
+  background: var(--track-bg-active);
+}
+.Range::-webkit-slider-runnable-track {
+  width: 100%;
+  height: var(--track-height);
+  cursor: pointer;
+  background: #3071a9;
+  border-radius: var(--space-1);
+  border: var(--track-border);
+}
+.Range:focus::-webkit-slider-runnable-track {
+  background: #367ebd;
+}
+
+.Range::-ms-track {
+  width: 100%;
+  height: var(--track-height);
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+
+/* Thumb */
+/* Firefox */
+.Range::-moz-range-thumb {
+  height: var(--thumb-height);
+  width: var(--thumb-width);
+  background: var(--thumb-bg);
+  border: var(--thumb-border);
+  border-radius: var(--thumb-radius);
+  cursor: pointer;
+  transition-property: background-color, width, height;
+  transition-duration: var(--duration);
+  transition-timing-function: ease-in;
+}
+.Range::-moz-range-thumb:hover {
+  background: var(--thumb-bg-hover);
+  width: var(--thumb-width-expand);
+  height: var(--thumb-height-expand);
+}
+.Range::-moz-range-thumb:active {
+  background: var(--thumb-bg-active);
+}
+
+/* Safari */
+.Range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: var(--thumb-height);
+  width: var(--thumb-width);
+  background: var(--thumb-bg);
+  border: var(--thumb-border);
+  border-radius: var(--thumb-radius);
+  cursor: pointer;
+  margin-top: -12px; /* Typical webkit alignment fix */
+  transition-property: background-color, height;
+  transition-duration: var(--duration);
+  transition-timing-function: ease-in;
+}
+.Range::-webkit-range-thumb:hover {
+  background: var(--thumb-bg-hover);
+}
+
+/* Microslop */
+.Range::-ms-range-thumb {
+  height: var(--thumb-height);
+  width: var(--thumb-width);
+  background: var(--thumb-bg);
+  border: var(--thumb-border);
+  border-radius: var(--thumb-radius);
+  cursor: pointer;
+}

@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Stack+Sans+Text:wght@200..700&display=swap");
+
+.Theme {
+  color-scheme: light dark;
+
+  --font-family: "Stack Sans Text", sans-serif;
+  --scaling: 1;
+  --space-1: calc(4px * var(--scaling));
+  --space-2: calc(8px * var(--scaling));
+  --space-3: calc(12px * var(--scaling));
+  --space-4: calc(16px * var(--scaling));
+  --space-5: calc(24px * var(--scaling));
+  --space-6: calc(32px * var(--scaling));
+  --space-7: calc(40px * var(--scaling));
+  --space-8: calc(48px * var(--scaling));
+  --space-9: calc(64px * var(--scaling));
+  --gray-1: #fcfcfd;
+  --gray-2: #f9f9fb;
+  --gray-3: #f0f0f3;
+  --gray-4: #e8e8ec;
+  --gray-5: #e0e1e6;
+  --gray-6: #d9d9e0;
+  --gray-7: #cdced6;
+  --gray-8: #b9bbc6;
+  --gray-9: #8b8d98;
+  --gray-10: #80838d;
+  --gray-11: #60646c;
+  --gray-12: #1c2024;
+
+  @media (prefers-color-scheme: dark) {
+    --gray-1: #111113;
+    --gray-2: #18191b;
+    --gray-3: #212225;
+    --gray-4: #272a2d;
+    --gray-5: #2e3135;
+    --gray-6: #363a3f;
+    --gray-7: #43484e;
+    --gray-8: #5a6169;
+    --gray-9: #696e77;
+    --gray-10: #777b84;
+    --gray-11: #b0b4ba;
+    --gray-12: #edeef0;
+  }
+}
+.Container {
+  --input-gap: var(--space-3);
+  --window-padding: var(--space-3);
+
+  position: fixed;
+  padding: var(--space-4);
+
+  background: var(--gray-1);
+  border-radius: var(--space-2);
+  border: 1.5px solid var(--gray-2);
+}
+
+.Container[data-position-y="top"] {
+  top: var(--window-padding);
+}
+
+.Container[data-position-y="bottom"] {
+  bottom: var(--window-padding);
+}
+
+.Container[data-position-x="left"] {
+  left: var(--window-padding);
+}
+
+.Container[data-position-x="right"] {
+  right: var(--window-padding);
+}
+
+.Content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--input-gap);
+
+  font-family: var(--font-family);
+}

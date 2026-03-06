@@ -1,37 +1,52 @@
 import { DebugItem, debugStore } from "@/store/DebugStore";
-import {  useSetAtom } from "jotai/react";
-import { selectAtom } from "jotai/utils";
-import { useEffect, useMemo } from "react";
+import { useAtomValue, useSetAtom } from "jotai/react";
+import { useEffect } from "react";
 
-// const data = useDebug("input", { value: 4 })
-export function useDebug(type: DebugItem['type'], defaultData: DebugItem['data']) {
-    const id = useMemo(() => crypto.randomUUID(), [])
-    const data = selectAtom(debugStore, (store) => store.items.find(item => item.id == id));
-    const updateStore = useSetAtom(debugStore);
+export type UseDebugItem = {
+  type: DebugItem["type"];
+} & DebugItem["data"];
 
-    useEffect(() => {
-        updateStore((prev) => {
-            const newItem = {
-                data: defaultData,
-                type,
-                id,
-            } as DebugItem;
-            const newItems = [...prev.items, newItem];
+// const data = useDebug({ exampleProp: { type: "input", value: 4 } })
+export function useDebug<T extends string>(items: Record<T, UseDebugItem>) {
+  const store = useAtomValue(debugStore);
+  const ids = Object.keys(items);
+  const data = store.items
+    .filter((item) => ids.includes(item.id))
+    .reduce(
+      (merge, prev) => ({
+        ...merge,
+        [prev.id]: prev.data.value,
+      }),
+      {} as Record<T, DebugItem["data"]["value"]>,
+    );
+  const updateStore = useSetAtom(debugStore);
 
-            return ({
-                ...prev,
-                items: newItems,
-            })
-        })
-    
-      return () => {
-        updateStore((prev) => ({
-            ...prev,
-            items: prev.items.filter(item => item.id != id)
-        }))
-      }
-    }, [])
+  useEffect(() => {
+    updateStore((prev) => {
+      const newItems = Object.entries(items).map(([id, item]) => {
+        const { type, ...data } = item as UseDebugItem;
+        return {
+          type,
+          data,
+          id,
+        } as DebugItem;
+      });
+      const updatedItems = [...prev.items, ...newItems];
 
-    return data;
-    
+      return {
+        ...prev,
+        items: updatedItems,
+      };
+    });
+
+    return () => {
+      const ids = Object.keys(items);
+      updateStore((prev) => ({
+        ...prev,
+        items: prev.items.filter((item) => !ids.includes(item.id)),
+      }));
+    };
+  }, []);
+
+  return data;
 }

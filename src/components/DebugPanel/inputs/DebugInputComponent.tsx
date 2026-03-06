@@ -1,21 +1,36 @@
-import React from 'react'
-import { DebugItem, DebugRange, DebugSelect } from '@/store/DebugStore'
-import DebugSelectInput from './DebugSelectInput';
-import DebugRangeInput from './DebugRangeInput';
+import React from "react";
+import { DebugItem, DebugRange, DebugSelect } from "@/store/DebugStore";
+import DebugSelectInput from "./DebugSelectInput";
+import DebugRangeInput from "./DebugRangeInput";
+import DebugStringInput from "./DebugStringInput";
 
-type Props = DebugItem
+type Props = DebugItem;
 
-const DebugInputComponent = ({type, ...props}: Props) => {
-
+const DebugInputComponent = ({ type, ...props }: Props) => {
   switch (type) {
-    case 'select':
-      return <DebugSelectInput type={type} {...props as Omit<DebugSelect, "type">}  />
-    case 'range':
-      return <DebugRangeInput type={type} {...props as Omit<DebugRange, "type">}  />
-  
-    default:
-      return <div></div>
-  }
-}
+    case "input":
+      return (
+        <DebugStringInput
+          type={type}
+          {...(props as Omit<DebugSelect, "type">)}
+        />
+      );
 
-export default DebugInputComponent
+    case "select":
+      return (
+        <DebugSelectInput
+          type={type}
+          {...(props as Omit<DebugSelect, "type">)}
+        />
+      );
+    case "range":
+      return (
+        <DebugRangeInput type={type} {...(props as Omit<DebugRange, "type">)} />
+      );
+
+    default:
+      return <div></div>;
+  }
+};
+
+export default DebugInputComponent;
