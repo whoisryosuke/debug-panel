@@ -11,20 +11,40 @@
   text-transform: uppercase;
 }
 
-.InputBox {
+input.InputBox,
+input.NestedInput {
+  width: 100%;
+}
+
+.InputBox,
+.NestedInput {
   color: var(--gray-10);
   padding: var(--space-1) var(--space-2);
-  background: var(--gray-2);
   border-radius: var(--space-1);
   border: 1.5px solid var(--gray-3);
-  font-family: var(--font-family);
   transition: color 240ms linear;
+  font-family: var(--font-family);
 }
 
-.InputBox:hover {
-  color: var(--gray-11);
+.InputBox:has(.NestedInput) {
+  padding: var(--space-2) var(--space-2);
+  border-radius: var(--space-2);
+}
+.InputBox {
+  background: var(--gray-2);
 }
 
-.InputBox:focus-visible {
+.InputBox:hover,
+.NestedInput:hover {
+  color: var(--gray-12);
+}
+
+.InputBox:focus-visible,
+.NestedInput:focus-visible {
+  color: var(--gray-12);
   outline: 1.5px solid teal;
+}
+
+.NestedInput {
+  background: var(--gray-3);
 }

@@ -42,6 +42,25 @@ function App() {
         },
       ],
     },
+    // Vector3D input
+    vector3d: {
+      type: "vec3",
+      value: {
+        x: 0,
+        y: 1,
+        z: 2,
+      },
+    },
+    // Vector4D input
+    vector4d: {
+      type: "vec4",
+      value: {
+        x: 0,
+        y: 1,
+        z: 2,
+        w: 3,
+      },
+    },
   });
 
   console.log("data", input);
