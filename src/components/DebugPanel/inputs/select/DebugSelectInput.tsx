@@ -1,15 +1,14 @@
-import { DebugRange, debugStore } from "@/store/DebugStore";
+import { DebugSelect, debugStore } from "@/store/DebugStore";
 import { useSetAtom } from "jotai/react";
 import React, { ChangeEventHandler } from "react";
-import sharedStyles from "./DebugInputShared.module.css";
-import styles from "./DebugRangeInput.module.css";
+import sharedStyles from "../DebugInputShared.module.css";
 
-type Props = DebugRange;
+type Props = DebugSelect;
 
-const DebugRangeInput = ({ id, type, data }: Props) => {
+const DebugSelectInput = ({ id, type, data }: Props) => {
   const updateStore = useSetAtom(debugStore);
 
-  const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+  const handleChange: ChangeEventHandler<HTMLSelectElement> = (e) => {
     updateStore((prev) => ({
       ...prev,
       // Update the specific input inside store by ID
@@ -20,7 +19,7 @@ const DebugRangeInput = ({ id, type, data }: Props) => {
               ...item,
               data: {
                 ...item.data,
-                value: parseInt(e.currentTarget.value),
+                value: e.currentTarget.value,
               },
             }
           : item,
@@ -31,18 +30,19 @@ const DebugRangeInput = ({ id, type, data }: Props) => {
   return (
     <div className={sharedStyles.FormField}>
       <label htmlFor={id}>{id}</label>
-      <input
+
+      <select
         name={id}
-        className={styles.Range}
-        type="range"
-        min={data.min}
-        max={data.max}
-        step={data.step}
+        className={sharedStyles.InputBox}
         value={data.value}
         onChange={handleChange}
-      />
+      >
+        {data.items.map((item) => (
+          <option value={item.value}>{item.title}</option>
+        ))}
+      </select>
     </div>
   );
 };
 
-export default DebugRangeInput;
+export default DebugSelectInput;

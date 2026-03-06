@@ -1,14 +1,14 @@
-import { DebugSelect, debugStore } from "@/store/DebugStore";
+import { DebugInput, debugStore } from "@/store/DebugStore";
 import { useSetAtom } from "jotai/react";
 import React, { ChangeEventHandler } from "react";
-import sharedStyles from "./DebugInputShared.module.css";
+import sharedStyles from "../DebugInputShared.module.css";
 
-type Props = DebugSelect;
+type Props = DebugInput;
 
-const DebugSelectInput = ({ id, type, data }: Props) => {
+const DebugStringInput = ({ id, type, data }: Props) => {
   const updateStore = useSetAtom(debugStore);
 
-  const handleChange: ChangeEventHandler<HTMLSelectElement> = (e) => {
+  const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     updateStore((prev) => ({
       ...prev,
       // Update the specific input inside store by ID
@@ -30,19 +30,15 @@ const DebugSelectInput = ({ id, type, data }: Props) => {
   return (
     <div className={sharedStyles.FormField}>
       <label htmlFor={id}>{id}</label>
-
-      <select
+      <input
         name={id}
         className={sharedStyles.InputBox}
+        type="text"
         value={data.value}
         onChange={handleChange}
-      >
-        {data.items.map((item) => (
-          <option value={item.value}>{item.title}</option>
-        ))}
-      </select>
+      />
     </div>
   );
 };
 
-export default DebugSelectInput;
+export default DebugStringInput;

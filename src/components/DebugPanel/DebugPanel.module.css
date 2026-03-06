@@ -4,6 +4,8 @@
   color-scheme: light dark;
 
   --font-family: "Stack Sans Text", sans-serif;
+  --duration: 240ms;
+  /* Spacing */
   --scaling: 1;
   --space-1: calc(4px * var(--scaling));
   --space-2: calc(8px * var(--scaling));
@@ -14,6 +16,8 @@
   --space-7: calc(40px * var(--scaling));
   --space-8: calc(48px * var(--scaling));
   --space-9: calc(64px * var(--scaling));
+  /* Colors (light mode) */
+  --primary: teal;
   --gray-1: #fcfcfd;
   --gray-2: #f9f9fb;
   --gray-3: #f0f0f3;
@@ -27,6 +31,7 @@
   --gray-11: #60646c;
   --gray-12: #1c2024;
 
+  /* Colors (dark mode) */
   @media (prefers-color-scheme: dark) {
     --gray-1: #111113;
     --gray-2: #18191b;

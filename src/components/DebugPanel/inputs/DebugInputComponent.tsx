@@ -1,8 +1,16 @@
 import React from "react";
-import { DebugItem, DebugRange, DebugSelect } from "@/store/DebugStore";
-import DebugSelectInput from "./DebugSelectInput";
-import DebugRangeInput from "./DebugRangeInput";
-import DebugStringInput from "./DebugStringInput";
+import {
+  DebugButton,
+  DebugCheckbox,
+  DebugItem,
+  DebugRange,
+  DebugSelect,
+} from "@/store/DebugStore";
+import DebugSelectInput from "./select/DebugSelectInput";
+import DebugRangeInput from "./range/DebugRangeInput";
+import DebugStringInput from "./input/DebugStringInput";
+import DebugCheckboxInput from "./checkbox/DebugCheckboxInput";
+import DebugButtonInput from "./button/DebugButtonInput";
 
 type Props = DebugItem;
 
@@ -26,6 +34,22 @@ const DebugInputComponent = ({ type, ...props }: Props) => {
     case "range":
       return (
         <DebugRangeInput type={type} {...(props as Omit<DebugRange, "type">)} />
+      );
+
+    case "checkbox":
+      return (
+        <DebugCheckboxInput
+          type={type}
+          {...(props as Omit<DebugCheckbox, "type">)}
+        />
+      );
+
+    case "button":
+      return (
+        <DebugButtonInput
+          type={type}
+          {...(props as Omit<DebugButton, "type">)}
+        />
       );
 
     default:

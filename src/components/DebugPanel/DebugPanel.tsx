@@ -5,8 +5,8 @@ import { useAtomValue } from "jotai/react";
 import styles from "./DebugPanel.module.css";
 
 type Props = {
-  bottom: boolean;
-  left: boolean;
+  bottom?: boolean;
+  left?: boolean;
 };
 
 const DebugPanel = ({ bottom, left }: Props) => {

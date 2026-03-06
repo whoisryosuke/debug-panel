@@ -19,8 +19,6 @@
   --track-bg: var(--gray-2);
   --track-bg-active: teal;
   --track-border: 1.5px solid var(--gray-3);
-
-  --duration: 240ms;
 }
 
 .Range:focus {

@@ -1,11 +1,12 @@
-import { DebugInput, debugStore } from "@/store/DebugStore";
+import { DebugRange, debugStore } from "@/store/DebugStore";
 import { useSetAtom } from "jotai/react";
 import React, { ChangeEventHandler } from "react";
-import sharedStyles from "./DebugInputShared.module.css";
+import sharedStyles from "../DebugInputShared.module.css";
+import styles from "./DebugRangeInput.module.css";
 
-type Props = DebugInput;
+type Props = DebugRange;
 
-const DebugStringInput = ({ id, type, data }: Props) => {
+const DebugRangeInput = ({ id, type, data }: Props) => {
   const updateStore = useSetAtom(debugStore);
 
   const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -19,7 +20,7 @@ const DebugStringInput = ({ id, type, data }: Props) => {
               ...item,
               data: {
                 ...item.data,
-                value: e.currentTarget.value,
+                value: parseInt(e.currentTarget.value),
               },
             }
           : item,
@@ -32,8 +33,11 @@ const DebugStringInput = ({ id, type, data }: Props) => {
       <label htmlFor={id}>{id}</label>
       <input
         name={id}
-        className={sharedStyles.InputBox}
-        type="text"
+        className={styles.Range}
+        type="range"
+        min={data.min}
+        max={data.max}
+        step={data.step}
         value={data.value}
         onChange={handleChange}
       />
@@ -41,4 +45,4 @@ const DebugStringInput = ({ id, type, data }: Props) => {
   );
 };
 
-export default DebugStringInput;
+export default DebugRangeInput;

@@ -29,6 +29,25 @@ export type DebugRange = DebugItemBase & {
   data: DebugRangeData;
 };
 
+// Checkbox
+export type DebugCheckboxData = {
+  value: boolean;
+};
+export type DebugCheckbox = DebugItemBase & {
+  type: "checkbox";
+  data: DebugCheckboxData;
+};
+
+// Button
+export type DebugButtonData = {
+  text: string;
+  value: () => void;
+};
+export type DebugButton = DebugItemBase & {
+  type: "button";
+  data: DebugButtonData;
+};
+
 // Input (generic)
 export type DebugInputData = {
   value: number | string;
@@ -38,7 +57,12 @@ export type DebugInput = DebugItemBase & {
   data: DebugInputData;
 };
 
-export type DebugItem = DebugSelect | DebugRange | DebugInput;
+export type DebugItem =
+  | DebugSelect
+  | DebugRange
+  | DebugInput
+  | DebugCheckbox
+  | DebugButton;
 
 type DebugStore = {
   visible: boolean;
