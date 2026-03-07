@@ -116,6 +116,10 @@ export type DebugItem =
   | DebugVector4D
   | DebugPiano;
 
+export type DebugValueMap = {
+  [K in DebugItem["type"]]: Extract<DebugItem, { type: K }>["data"]["value"];
+};
+
 type DebugStore = {
   visible: boolean;
   items: DebugItem[];
