@@ -1,0 +1,10 @@
+.WhiteKey {
+  color: var(--gray-11);
+  background: var(--gray-2);
+  border-radius: var(--space-1);
+  border: 1.5px solid var(--gray-3);
+}
+
+.WhiteKey[data-selected="true"] {
+  background: var(--primary);
+}

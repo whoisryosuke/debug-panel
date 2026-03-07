@@ -61,6 +61,12 @@ function App() {
         w: 3,
       },
     },
+
+    // Piano
+
+    piano: {
+      type: "piano",
+    },
   });
 
   console.log("data", input);

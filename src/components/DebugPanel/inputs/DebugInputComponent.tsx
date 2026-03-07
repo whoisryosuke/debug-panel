@@ -3,6 +3,7 @@ import {
   DebugButton,
   DebugCheckbox,
   DebugItem,
+  DebugPiano,
   DebugRange,
   DebugSelect,
   DebugVector3D,
@@ -14,6 +15,7 @@ import DebugStringInput from "./input/DebugStringInput";
 import DebugCheckboxInput from "./checkbox/DebugCheckboxInput";
 import DebugButtonInput from "./button/DebugButtonInput";
 import DebugVectorInput from "./vector/DebugVectorInput";
+import DebugPianoInput from "./piano/DebugPianoInput";
 
 type Props = DebugItem;
 
@@ -68,6 +70,10 @@ const DebugInputComponent = ({ type, ...props }: Props) => {
           type={type}
           {...(props as Omit<DebugVector4D, "type">)}
         />
+      );
+    case "piano":
+      return (
+        <DebugPianoInput type={type} {...(props as Omit<DebugPiano, "type">)} />
       );
 
     default:

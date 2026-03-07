@@ -75,6 +75,24 @@ export type DebugVector4D = DebugItemBase & {
 };
 
 // Input (generic)
+export type PianoInput = {
+  c: boolean;
+  d: boolean;
+  e: boolean;
+  f: boolean;
+  g: boolean;
+  a: boolean;
+  b: boolean;
+};
+export type DebugPianoData = {
+  value: PianoInput;
+};
+export type DebugPiano = DebugItemBase & {
+  type: "piano";
+  data: DebugPianoData;
+};
+
+// Input (generic)
 export type DebugInputData = {
   value: number | string;
 };
@@ -90,7 +108,8 @@ export type DebugItem =
   | DebugCheckbox
   | DebugButton
   | DebugVector3D
-  | DebugVector4D;
+  | DebugVector4D
+  | DebugPiano;
 
 type DebugStore = {
   visible: boolean;
