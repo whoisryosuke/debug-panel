@@ -1,0 +1,26 @@
+.Container {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  z-index: 710;
+}
+
+.Container button {
+  color: var(--gray-11);
+  background: var(--gray-2);
+  border-radius: var(--space-1);
+  border: 1.5px solid var(--gray-3);
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition-property: background-color, color, border-color;
+    transition-duration: var(--duration);
+    transition-timing-function: ease-in-out;
+  }
+}
+
+.Container button:hover {
+  background: var(--primary);
+}
+.Container[data-visible="true"] svg {
+  transform: rotate(180deg);
+}

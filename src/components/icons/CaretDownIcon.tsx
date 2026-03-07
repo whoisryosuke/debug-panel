@@ -1,0 +1,20 @@
+import * as React from "react";
+
+type Props = React.SVGProps<SVGSVGElement>;
+
+const CaretDownIcon: React.FC<React.SVGProps<SVGSVGElement>> = (
+  props: Props,
+) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    fill="currentColor"
+    viewBox="0 0 24 24"
+    {...props}
+  >
+    <path d="M19 7H5c-.37 0-.71.21-.89.54a1 1 0 0 0 .07 1.04l7 10a.997.997 0 0 0 1.64 0l7-10c.21-.31.24-.7.07-1.04A1 1 0 0 0 19 7m-7 9.26L6.92 9h10.16z"></path>
+  </svg>
+);
+
+export default CaretDownIcon;
