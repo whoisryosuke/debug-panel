@@ -3,6 +3,7 @@ import { useSetAtom } from "jotai/react";
 import sharedStyles from "../DebugInputShared.module.css";
 import styles from "./DebugPianoInput.module.css";
 import { Stack } from "../../../..";
+import DebugPianoInputKey from "./DebugPianoInputKey";
 
 type Props = DebugPiano;
 
@@ -34,21 +35,42 @@ const DebugPianoInput = ({ id, type, data }: Props) => {
   return (
     <div className={sharedStyles.FormField}>
       <label htmlFor={id}>{id}</label>
-      <Stack>
-        <button
-          className={styles.WhiteKey}
-          data-selected={data.value.c}
-          onMouseDown={handleChange("c", true)}
-          onMouseUp={handleChange("c", false)}
-        >
-          C
-        </button>
-        <button className={styles.WhiteKey}>D</button>
-        <button className={styles.WhiteKey}>E</button>
-        <button className={styles.WhiteKey}>F</button>
-        <button className={styles.WhiteKey}>G</button>
-        <button className={styles.WhiteKey}>A</button>
-        <button className={styles.WhiteKey}>B</button>
+      <Stack horizontal gap="var(--space-1)">
+        <DebugPianoInputKey
+          note="c"
+          state={data.value}
+          handleChange={handleChange}
+        />
+        <DebugPianoInputKey
+          note="d"
+          state={data.value}
+          handleChange={handleChange}
+        />
+        <DebugPianoInputKey
+          note="e"
+          state={data.value}
+          handleChange={handleChange}
+        />
+        <DebugPianoInputKey
+          note="f"
+          state={data.value}
+          handleChange={handleChange}
+        />
+        <DebugPianoInputKey
+          note="g"
+          state={data.value}
+          handleChange={handleChange}
+        />
+        <DebugPianoInputKey
+          note="a"
+          state={data.value}
+          handleChange={handleChange}
+        />
+        <DebugPianoInputKey
+          note="b"
+          state={data.value}
+          handleChange={handleChange}
+        />
       </Stack>
     </div>
   );

@@ -1,10 +1,56 @@
-.WhiteKey {
-  color: var(--gray-11);
-  background: var(--gray-2);
-  border-radius: var(--space-1);
-  border: 1.5px solid var(--gray-3);
+.KeyContainer {
+  position: relative;
+  flex: 1;
+  display: flex;
 }
 
-.WhiteKey[data-selected="true"] {
+.WhiteKey,
+.BlackKey {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  padding: var(--space-2);
+  border-radius: var(--space-1);
+  border: 1.5px solid var(--gray-3);
+  color: var(--gray-11);
+}
+
+.WhiteKey {
+  flex: 1;
+  min-height: 100px;
+  justify-content: center;
+  align-items: end;
+  background: var(--gray-4);
+
+  font-size: var(--space-4);
+  font-family: var(--font-family);
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition-property: background-color, color, border-color;
+    transition-duration: var(--duration);
+    transition-timing-function: ease-in-out;
+  }
+}
+
+.WhiteKey:hover,
+.BlackKey:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.WhiteKey[data-selected="true"],
+.BlackKey[data-selected="true"] {
+  color: var(--gray-11);
   background: var(--primary);
+}
+
+.BlackKey {
+  position: absolute;
+  width: 50%;
+  height: 70%;
+  top: 0;
+  left: 75%;
+  z-index: 420;
+
+  background: var(--gray-1);
 }

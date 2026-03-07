@@ -77,11 +77,16 @@ export type DebugVector4D = DebugItemBase & {
 // Input (generic)
 export type PianoInput = {
   c: boolean;
+  "c#": boolean;
   d: boolean;
+  "d#": boolean;
   e: boolean;
   f: boolean;
+  "f#": boolean;
   g: boolean;
+  "g#": boolean;
   a: boolean;
+  "a#": boolean;
   b: boolean;
 };
 export type DebugPianoData = {

@@ -16,11 +16,16 @@ export function generateDefaultData(
       return {
         value: {
           c: false,
+          "c#": false,
           d: false,
+          "d#": false,
           e: false,
           f: false,
+          "f#": false,
           g: false,
+          "g#": false,
           a: false,
+          "a#": false,
           b: false,
         },
         ...userData,

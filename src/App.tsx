@@ -2,7 +2,7 @@ import DebugPanel from "./components/DebugPanel/DebugPanel";
 import { useDebug } from "./hooks/useDebug";
 
 function App() {
-  const { input, range, checkbox, select } = useDebug({
+  const { input, range, checkbox, select, piano } = useDebug({
     // String input
     input: {
       type: "input",
@@ -63,7 +63,6 @@ function App() {
     },
 
     // Piano
-
     piano: {
       type: "piano",
     },
@@ -77,6 +76,9 @@ function App() {
       <p>Range: {range}</p>
       <p>Select: {select}</p>
       <p>Checkbox: {checkbox ? "True" : "False"}</p>
+      <div>
+        <p>Piano C: {piano.c ? "True" : "False"}</p>
+      </div>
     </div>
   );
 }
