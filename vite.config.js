@@ -17,7 +17,13 @@ export default defineConfig({
     },
 
     rollupOptions: {
-      external: ["react", "react/jsx-runtime", "react-dom", "jotai"],
+      external: [
+        "react",
+        "react-dom",
+        "react/jsx-runtime",
+        /^react\/.*/, // Catches things like react/jsx-dev-runtime
+        "jotai",
+      ],
       output: {
         globals: {
           react: "React",
