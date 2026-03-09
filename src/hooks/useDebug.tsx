@@ -19,8 +19,11 @@ type UseDebugReturn<T> = {
 
 // const data = useDebug({ exampleProp: { type: "input", value: 4 } })
 export function useDebug<T extends Record<string, UseDebugItem>>(
-  items: T & { [K in keyof T]: { type: T[K] extends { type: infer U } ? U : never } },
+  items: T & {
+    [K in keyof T]: { type: T[K] extends { type: infer U } ? U : never };
+  },
 ): UseDebugReturn<T> {
+  console.log("creating debug...");
   // Get the store and filter it by the user's keys (aka `T`)
   // and massage data into a nice object for user
   const store = useAtomValue(debugStore);
