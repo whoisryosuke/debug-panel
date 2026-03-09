@@ -1,4 +1,4 @@
-import React, { type HTMLProps, type PropsWithChildren } from "react";
+import { type HTMLProps, type PropsWithChildren } from "react";
 import "./Stack.css";
 
 type Props = HTMLProps<HTMLDivElement> & {
@@ -31,10 +31,12 @@ const Stack = ({
       ]
         .filter((n) => n)
         .join(" ")}
-      style={{
-        "--gap": gap,
-        ...style,
-      }}
+      style={
+        {
+          "--gap": gap,
+          ...style,
+        } as React.CSSProperties
+      }
       {...props}
     />
   );

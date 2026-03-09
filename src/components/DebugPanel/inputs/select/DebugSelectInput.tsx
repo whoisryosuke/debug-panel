@@ -1,6 +1,6 @@
 import { DebugSelect, debugStore } from "@/store/DebugStore";
 import { useSetAtom } from "jotai/react";
-import React, { ChangeEventHandler } from "react";
+import { ChangeEventHandler } from "react";
 import sharedStyles from "../DebugInputShared.module.css";
 
 type Props = DebugSelect;

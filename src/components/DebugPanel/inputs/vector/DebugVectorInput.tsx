@@ -1,12 +1,12 @@
 import {
-  DebugInput,
+  DebugItem,
   debugStore,
   DebugVector3D,
   DebugVector4D,
   Vector4D,
 } from "@/store/DebugStore";
 import { useSetAtom } from "jotai/react";
-import React, { ChangeEventHandler } from "react";
+import { ChangeEventHandler } from "react";
 import sharedStyles from "../DebugInputShared.module.css";
 import Stack from "@/components/primitives/Stack/Stack";
 
@@ -24,7 +24,7 @@ const DebugVectorInput = ({ id, type, data }: Props) => {
         // Immutable state + arrays + nested objects, it's a doozy every time
         items: prev.items.map((item) =>
           item.id == id && item.type == type
-            ? {
+            ? ({
                 ...item,
                 data: {
                   ...item.data,
@@ -33,7 +33,7 @@ const DebugVectorInput = ({ id, type, data }: Props) => {
                     [inputKey]: parseFloat(e.currentTarget.value),
                   },
                 },
-              }
+              } as DebugItem)
             : item,
         ),
       }));

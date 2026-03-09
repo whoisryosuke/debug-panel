@@ -1,5 +1,4 @@
 import CaretDownIcon from "@/components/icons/CaretDownIcon";
-import React from "react";
 import styles from "./PanelExpandButton.module.css";
 import { useSetAtom } from "jotai/react";
 import { debugStore } from "@/store/DebugStore";

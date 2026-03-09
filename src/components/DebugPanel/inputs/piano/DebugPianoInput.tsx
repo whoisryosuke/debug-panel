@@ -1,9 +1,8 @@
 import { DebugPiano, debugStore, PianoInput } from "@/store/DebugStore";
 import { useSetAtom } from "jotai/react";
 import sharedStyles from "../DebugInputShared.module.css";
-import styles from "./DebugPianoInput.module.css";
-import { Stack } from "../../../..";
 import DebugPianoInputKey from "./DebugPianoInputKey";
+import Stack from "@/components/primitives/Stack/Stack";
 
 type Props = DebugPiano;
 

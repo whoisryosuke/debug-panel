@@ -1,6 +1,6 @@
 import { DebugCheckbox, debugStore } from "@/store/DebugStore";
 import { useSetAtom } from "jotai/react";
-import React, { ChangeEventHandler } from "react";
+import { ChangeEventHandler } from "react";
 import sharedStyles from "../DebugInputShared.module.css";
 import styles from "./DebugCheckboxInput.module.css";
 import CheckIcon from "@/components/icons/CheckIcon";

@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./DebugPianoInput.module.css";
 import { PianoInput } from "@/store/DebugStore";
 import { PIANO_KEYS } from "./constants";
