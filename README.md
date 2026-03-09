@@ -70,5 +70,6 @@ const { yourInput } = useDebug({
 
 1. Bump version in `package.json`
 1. `yarn build`
-1. `npm publish`
+1. `npm login`
+1. `npm publish --access public`
 1. Create new tag and release on GitHub.
