@@ -47,3 +47,12 @@ input.NestedInput {
 .NestedInput {
   background: var(--gray-3);
 }
+
+.InputValue {
+  display: flex;
+  justify-content: flex-end;
+
+  color: var(--gray-10);
+
+  font-variant-numeric: tabular-nums;
+}

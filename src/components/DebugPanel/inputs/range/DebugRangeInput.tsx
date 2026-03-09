@@ -41,6 +41,7 @@ const DebugRangeInput = ({ id, type, data }: Props) => {
         value={data.value}
         onChange={handleChange}
       />
+      <small className={sharedStyles.InputValue}>{data.value}</small>
     </div>
   );
 };
