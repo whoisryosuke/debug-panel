@@ -1,3 +1,3 @@
-import Stack from "./components/primitives/Stack/Stack";
+import { useDebug } from "./hooks/useDebug";
 
-export { Stack };
+export { useDebug };
