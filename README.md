@@ -1,3 +1,5 @@
+![Panel](./docs/screenshot.png)
+
 # Debug Panel
 
 Simple debug panel for ReactJS apps. Lets you create inputs inside a debug panel and use their output in your app (like a debug text field, or color picker).
