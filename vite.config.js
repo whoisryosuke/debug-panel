@@ -23,6 +23,7 @@ export default defineConfig({
         "react/jsx-runtime",
         /^react\/.*/, // Catches things like react/jsx-dev-runtime
         "jotai",
+        /^jotai\/.*/,
       ],
       output: {
         globals: {
