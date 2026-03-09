@@ -5,6 +5,8 @@
 }
 
 .FormField label {
+  display: flex;
+  justify-content: flex-start;
   color: var(--gray-6);
   font-size: var(--space-3);
   margin: 0;
