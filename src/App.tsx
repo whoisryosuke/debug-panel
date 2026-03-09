@@ -77,7 +77,7 @@ function App() {
       <p>Select: {select}</p>
       <p>Checkbox: {checkbox ? "True" : "False"}</p>
       <div>
-        <p>Piano C: {piano.c ? "True" : "False"}</p>
+        <p>Piano C: {piano?.c ? "True" : "False"}</p>
       </div>
     </div>
   );
