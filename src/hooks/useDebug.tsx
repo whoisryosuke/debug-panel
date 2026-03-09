@@ -23,7 +23,6 @@ export function useDebug<T extends Record<string, UseDebugItem>>(
     [K in keyof T]: { type: T[K] extends { type: infer U } ? U : never };
   },
 ): UseDebugReturn<T> {
-  console.log("creating debug...");
   // Get the store and filter it by the user's keys (aka `T`)
   // and massage data into a nice object for user
   const store = useAtomValue(debugStore);

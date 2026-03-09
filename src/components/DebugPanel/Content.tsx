@@ -5,7 +5,6 @@ import styles from "./DebugPanel.module.css";
 
 const Content = () => {
   const { items } = useAtomValue(debugStore);
-  console.log("debug items", items);
   const renderItems = items.map((item) => (
     <DebugInputComponent key={item.id} {...item} />
   ));
